@@ -12,27 +12,27 @@ const LazyNewBook = React.lazy(() => import('./components/NewBook'));
 const LazyBookList = React.lazy(() => import('./components/BookList'));
 
 const App = () => {
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <ConfirmDialogProvider>
-        <StylesProvider>
-          <Header />
-          <BooksStoreProvider>
-            <Router>
-              <Suspense fallback={<Progress />}>
-                <Switch>
-                  <Route path='/book/:id' component={LazyBookDetails} />
-                  <Route path='/new-book' component={LazyNewBook} />
-                  <Route path='/' component={LazyBookList} />
-                </Switch>
-              </Suspense>
-            </Router>
-          </BooksStoreProvider>
-        </StylesProvider>
-      </ConfirmDialogProvider>
-    </React.Fragment>
-  );
+    return (
+        <React.Fragment>
+            <CssBaseline />
+            <ConfirmDialogProvider>
+                <StylesProvider>
+                    <Header />
+                    <BooksStoreProvider>
+                        <Router>
+                            <Suspense fallback={<Progress />}>
+                                <Switch>
+                                    <Route path="/book/:id" component={LazyBookDetails} />
+                                    <Route path="/new-book" component={LazyNewBook} />
+                                    <Route path="/" component={LazyBookList} />
+                                </Switch>
+                            </Suspense>
+                        </Router>
+                    </BooksStoreProvider>
+                </StylesProvider>
+            </ConfirmDialogProvider>
+        </React.Fragment>
+    );
 };
 
 export default App;
